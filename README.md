@@ -1,3 +1,8 @@
+サーバ起動　 
+npm run dev
+npx astro build
+http://localhost:4321/
+
 # Astro Starter Kit: Basics
 
 ```sh

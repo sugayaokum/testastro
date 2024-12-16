@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../posts/*.md');
+
+  return [
+    {params: {tag: "astro"}, props: {posts: allPosts}},
+    {params: {tag: "成功"}, props: {posts: allPosts}},
+    {params: {tag: "コミュニティ"}, props: {posts: allPosts}},
+    {params: {tag: "ブログ"}, props: {posts: allPosts}},
+    {params: {tag: "後退"}, props: {posts: allPosts}},
+    {params: {tag: "公開学習"}, props: {posts: allPosts}}
+  ];
+}
+
+const { tag } = Astro.params;
+---
+<BaseLayout pageTitle={tag}>
+  <p>{tag}のタグが付いた記事</p>
+</BaseLayout>
